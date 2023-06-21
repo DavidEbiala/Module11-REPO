@@ -8,7 +8,9 @@ const PORT = 3001;
 app.use();
 
 //Focus on this too.
-app.get();
+app.get('/notes',(req, res) => );
 
 //And this last one too.
-app.listen();
+app.listen(PORT, () =>
+    console.info(`Example app listening at http://localhost:${PORT} 🚀`)
+);
