@@ -10,7 +10,7 @@ app.use(express.static('public'));
 
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/'));
+    res.sendFile(path.join(__dirname, '/public/index.html'));
   });
 //Focus on this too.
 app.get('/notes',(req, res) => {
@@ -28,6 +28,7 @@ app.post('/notes', (req, res) => {
     const { title, text } = req.body;
 
     if(title && text){
+
         const newNote = {
             title,
             text
