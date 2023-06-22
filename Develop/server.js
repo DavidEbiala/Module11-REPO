@@ -21,6 +21,30 @@ app.post('/notes', (req, res) => {
     console.info(`${req.method} request recieved to add a note.`);
     res.sendFile(path.join(__dirname, '/public/notes.html') );
 })
+
+app.post('/notes', (req, res) => {
+    console.info(`${req.method} request recieved to add a review`);
+
+    const { title, text } = req.body;
+
+    if(title && text){
+        const newNote = {
+            title,
+            text
+        };
+
+        const response = {
+            status: 'success',
+            body: newNote,
+        };
+
+        console.log(response);
+        res.status(201).json(response);
+    } else{
+        res.status(500).json('Error in posting notes');
+    }
+});
+
 //And this last one too.
 app.listen(PORT, () =>
     console.info(`Example app listening at http://localhost:${PORT} 🚀`)
